@@ -1,6 +1,6 @@
 # Tokens
 
-The kit file carries **98 tokens**: 86 primitives with literal values and 12 semantic aliases that point at primitives with `var(…)`. Their values are Fieldwork's, the kit's sample system: paper and bark with moss, IBM Plex Sans with IBM Plex Mono, 6px corners. Boards use the aliases and a few primitives, so changing a primitive's value restyles every page that uses it.
+The kit file carries **98 tokens**: 86 primitives with literal values and 12 semantic aliases that point at primitives with `var(…)`. Their values are Fieldwork's, the kit's sample system: cool lichen-stone neutrals and a deep green-black ink with moss, signal orange and a red for errors, IBM Plex Sans with IBM Plex Mono, 6px corners. (Before 25 November 2026 the neutrals were a warm cream and bark brown; the old values are listed in `lint.md` for older copies.) Boards use the aliases and a few primitives, so changing a primitive's value restyles every page that uses it.
 
 ## First: are the tokens there?
 
@@ -36,26 +36,26 @@ Map the brief's palette roles onto the primitives by **role**, not by name. The 
 
 | Primitive(s) | Kit value (Fieldwork) | Role on the boards | Set it to |
 |---|---|---|---|
-| `--color-canvas` | `#F1EFE7` | The ground under every sheet (`--color-background`) | Their page ground |
-| `--color-white` | `#FBFAF5` | Sheets, cards, popovers (`--color-surface`); text on primary (`--color-primary-foreground`, `--color-pin-foreground`) | Their raised surface |
-| `--color-surface-muted` | `#EEEBE1` | Selected row, segmented track, soft button fill | A step from surface toward ink |
-| `--color-surface-sunken` | `#F5F3EC` | Wells inside a sheet: fields, In context canvases, Do and Don't wells | A step below surface |
-| `--color-line` | `#E2DED4` | Hairlines and dividers (`--color-border`) | Their divider colour |
-| `--color-canvas-dot` | `#D3CEC1` | Disabled primary fill | Their disabled fill |
-| `--color-ash` | `#9A9285` | Placeholders, disabled text, planned dots (`--color-foreground-disabled`) | Their quietest legible grey |
-| `--color-slate` | `#6B6255` | Secondary text (`--color-foreground-muted`) | Muted text, ≥ 4.5:1 on surface |
-| `--color-ink` | `#3E3428` | Text (`--color-foreground`) | Their ink |
+| `--color-canvas` | `#EEF0EB` | The ground under every sheet (`--color-background`) | Their page ground |
+| `--color-white` | `#FBFBF9` | Sheets, cards, popovers (`--color-surface`); text on primary (`--color-primary-foreground`, `--color-pin-foreground`) | Their raised surface |
+| `--color-surface-muted` | `#E8EBE4` | Selected row, segmented track, soft button fill | A step from surface toward ink |
+| `--color-surface-sunken` | `#F4F5F1` | Wells inside a sheet: fields, In context canvases, Do and Don't wells | A step below surface |
+| `--color-line` | `#DCE0D7` | Hairlines and dividers (`--color-border`) | Their divider colour |
+| `--color-canvas-dot` | `#C9CEC4` | Disabled primary fill | Their disabled fill |
+| `--color-ash` | `#8C9187` | Placeholders, disabled text, planned dots (`--color-foreground-disabled`) | Their quietest legible grey |
+| `--color-slate` | `#5B6157` | Secondary text (`--color-foreground-muted`) | Muted text, ≥ 4.5:1 on surface |
+| `--color-ink` | `#1F261D` | Text (`--color-foreground`) | Their ink |
 | `--color-ink-hover` | `#415A2F` | Primary hover (a darker moss in the kit, because `--color-primary` points at the accent) | One step darker than their primary (lighter on a dark theme) |
 | `--color-link`, `--color-link-line`, `--color-link-tint` | `#4F6B3A`, at 50%, at 12% | The accent: the primary action (`--color-primary`), links, focus rings, selection, progress, map contours | Their interactive accent; keep the 50% (`80` alpha) and 12% (`1F` alpha) steps |
 | `--color-pushpin` | `#E0662B` | The attention dot (`--color-pin`): a quadrat not logged yet | Their attention colour |
 | `--color-pin-green` | `#4F6B3A` | Logged, success, Do (`--color-success`); equal to the accent in the kit | Their success colour, ≥ 4.5:1 at 12px. It may equal the accent when the board uses one colour for both; then every status also carries a word or shape, never colour alone |
-| `--color-needs-owner`, `-tint`, `-text`, `--color-coral` | `#E0662B`, `#FBE6D8`, `#8C3A13`, `#F2B896` | "Needs attention" tags, note cards and lines | Their warning family: base, tint, text on tint, a light line colour |
-| `--color-oxblood`, `-hover`, `-tint` | `#A63A26`, `#8A2F1E`, `#F7E5DF` | Errors, sync failed, destructive actions, Don't (`--color-error`) | Their danger family |
+| `--color-needs-owner`, `-tint`, `-text`, `--color-coral` | `#E0662B`, `#FBE6D8`, `#7D3A0F`, `#F2B896` | "Needs attention" tags, note cards and lines | Their warning family: base, tint, text on tint, a light line colour |
+| `--color-oxblood`, `-hover`, `-tint` | `#B03A2E`, `#922E24`, `#F8E4E1` | Errors, sync failed, destructive actions, Don't (`--color-error`) | Their danger family |
 | `--color-butter`, `--color-rose`, `--color-sky`, `--color-sage` | `#F6E9AE`, `#F3D4C0`, `#D2DFE2`, `#C9D3B0` | Avatar and tag tints, given in order; sage is also the map's lichen ground | Four categorical tints from the moodboard that ink reads on |
 
-**Dark systems.** If the brief says dark, keep the roles and invert the values: `--color-canvas` becomes the darkest ground, `--color-white` the raised dark sheet, `--color-ink` the light text, `--color-primary-foreground` (which points at `--color-white`) then reads dark on a light primary. Literal `#FBFAF5` in focus rings and shadows doesn't follow; the raw-hex sweep in `lint.md` catches it.
+**Dark systems.** If the brief says dark, keep the roles and invert the values: `--color-canvas` becomes the darkest ground, `--color-white` the raised dark sheet, `--color-ink` the light text, `--color-primary-foreground` (which points at `--color-white`) then reads dark on a light primary. The kit's focus rings already use `var(--color-surface)` for their inner ring, so they follow. The ink-tinted shadow recipes don't: re-tint them in the shadow sweep below.
 
-**Contrast.** After the swap, check: ink on surface and on background ≥ 4.5; slate on surface ≥ 4.5; the link colour ≥ 3 for lines, ≥ 4.5 where it's text; error, success and `needs-owner-text` on its tint ≥ 4.5 at 12px; ink on each of the four tints ≥ 4.5 at 11px. Fix the primitive, not the page.
+**Contrast.** After the swap, check: ink on surface and on background ≥ 4.5; slate on surface ≥ 4.5; the link colour ≥ 3 for lines, ≥ 4.5 where it's text; error, success and `needs-owner-text` on its tint ≥ 4.5 at 12px; ink on each of the four tints ≥ 4.5 at 11px. Fix the primitive, not the page. The kit's own figures, for comparison: ink 15.0 on surface and 13.5 on background, slate 6.2 on surface, moss 5.8 on surface, `needs-owner-text` 7.0 on its tint, oxblood 4.9 on its tint, ink 9.9 or more on the four tints.
 
 ### Set: font families
 
@@ -107,28 +107,31 @@ If round things shared `--radius-full` with buttons, a square system that sets i
 
 ## Shadows
 
-Shadows are literal values on the boards, not tokens. The kit's are Fieldwork's: flat sheets on bark-tinted hairlines, three named recipes, a hairline and no lift on buttons:
+Shadows are literal values on the boards, not tokens. The kit's are Fieldwork's: flat sheets on ink-tinted hairlines, named recipes, a hairline and no lift on buttons. **A surface takes a hairline or a drop, never both:** the doc sheets on every page are a hairline ring alone, and only what opens over a sheet lifts.
 
 | Recipe | Value | Used for |
 |---|---|---|
-| **Float** | `#3E342814 0 0 0 1px, #3E34280A 0 1px 2px` | Section sheets, panels, drawers, cards |
-| **Lifted** | `#3E34281A 0 0 0 1px, #3E342814 0 8px 24px` | Menus, popovers, modals, phone sheets: anything that opens over a sheet |
-| **Window** | `#3E342814 0 0 0 1px, #3E34280F 0 8px 24px` | A product window or phone sitting on an In context canvas |
-| Hairline | `#3E342817 0 0 0 1px` | Secondary buttons, map buttons and controls inside a sheet |
+| **Sheet** | `#1F261D14 0 0 0 1px` | The section sheets on every Foundations and Components page, and the Readme's |
+| **Float** | `#1F261D14 0 0 0 1px, #1F261D0A 0 1px 2px` | Cards and panels inside the product scenes: survey cards, the quadrat list, drawer feet |
+| **Lifted** | `#1F261D1A 0 0 0 1px, #1F261D14 0 8px 24px` | Menus, popovers, modals, phone sheets: anything that opens over a sheet |
+| **Window** | `#1F261D14 0 0 0 1px, #1F261D0F 0 8px 24px` | A product window, a window crop or a phone sitting on an In context canvas |
+| Hairline | `#1F261D17 0 0 0 1px` | Secondary buttons, map buttons and controls inside a sheet |
 | Ink lift | none | The kit's primary buttons and pins carry no shadow (pins keep a 2px `var(--color-white)` ring) |
 
-Plus the focus ring, `#FBFAF5 0 0 0 2px, var(--color-link) 0 0 0 4px`, which is a shadow too. Its first part is Fieldwork's paper as a literal: set it to their surface (`var(--color-surface)` works inside a shadow) in the sweep.
+Plus the focus ring, `var(--color-surface) 0 0 0 2px, var(--color-link) 0 0 0 4px`, which is a shadow too; both parts are tokens, so it follows the swap.
 
-**When to raise.** If the brief's shape language is raised (soft cards, buttons that lift), deepen the recipes in the sweep, for example Float `#00000010 0 0 0 1px, #0000000A 0 1px 2px, #0000000F 0 12px 32px`, Lifted `#00000010 0 0 0 1px, #0000000A 0 2px 4px, #0000001A 0 24px 56px`, and add an Ink lift (`#00000026 0 1px 2px, #00000014 0 8px 24px`) to the primary button and pins as each page is rebuilt. Keep exactly one step between "sits on the page" and "opens over it", or popovers stop reading as on top. If the brief is flat, keep the kit's recipes and re-tint them: swap the bark `#3E3428` for their ink at the same alphas. If their ground is dark, black shadows vanish: use the ring (in a light alpha of their ink) and lower the drop.
+Older copies of the kit tint every recipe with bark, `#3E3428`, at the same alphas (`#3E342814`, `#3E34280A`, `#3E34281A`, `#3E34280F`, `#3E342817`), give section sheets the Float recipe, and write the focus ring's inner part as a literal `#FBFAF5`. The sweep below handles both.
 
-**The sweep** (SKILL.md step 3). One `find_nodes` per recipe across the whole file (no `pageId`), `filters: [{styleName: "boxShadow", styleValue: …}]`, using the colour-qualified queries so recipes that share offsets don't match each other: Float `*#3E34280A 0px 1px 2px*`, Lifted `*#3E342814 0px 8px 24px*`, Window `*#3E34280F 0px 8px 24px*`, hairline `*#3E342817 0px 0px 0px 1px*`, focus ring `*#FBFAF5 0px 0px 0px 2px*`. Leave every match on Start here alone: the preview board's chrome keeps Planed's literal shadows, and its Button clone is replaced in step 7. `update_styles` the rest.
+**When to raise.** If the brief's shape language is raised (soft cards, buttons that lift), deepen the recipes in the sweep, for example Float `#00000010 0 0 0 1px, #0000000A 0 1px 2px, #0000000F 0 12px 32px`, Lifted `#00000010 0 0 0 1px, #0000000A 0 2px 4px, #0000001A 0 24px 56px`, and add an Ink lift (`#00000026 0 1px 2px, #00000014 0 8px 24px`) to the primary button and pins as each page is rebuilt. Keep exactly one step between "sits on the page" and "opens over it", or popovers stop reading as on top. If the brief is flat, keep the kit's recipes and re-tint them: swap the kit's ink `#1F261D` (or bark `#3E3428` in an older copy) for their ink at the same alphas, and keep the section sheets on the hairline alone. If their ground is dark, black shadows vanish: use the ring (in a light alpha of their ink) and lower the drop.
+
+**The sweep** (SKILL.md step 3). One `find_nodes` per recipe, across the whole file or page by page (`pageId`), `filters: [{styleName: "boxShadow", styleValue: …}]`, using the colour-qualified queries so recipes that share offsets don't match each other: Float `*#1F261D0A 0px 1px 2px*`, Lifted `*#1F261D14 0px 8px 24px*`, Window `*#1F261D0F 0px 8px 24px*`, hairline `*#1F261D17 0px 0px 0px 1px*`, and the Sheet ring `#1F261D14 0px 0px 0px 1px` (exact, on nodes named `Section · …`). In an older copy, run the same queries with `3E3428` in place of `1F261D`, plus the focus ring `*#FBFAF5 0px 0px 0px 2px*`; a catch-all `*3E3428*` finds anything left. The quickest way through a whole file is one query per page (`pageId`), so no result is cut short. Leave every match on Start here alone: the preview board's chrome keeps Planed's literal shadows, and its Button clone is replaced in step 7. `update_styles` the rest.
 
 - **Repeat each query until only Start here matches.** `find_nodes` cuts a large result short without saying so: in a dry run the first whole-file Float query returned about 180 of about 310 nodes, and builders found section sheets still floating on page after page. After each round of updates, run the same query again; stop when every match left is on Start here.
 - **New values can match old queries.** If your new recipe keeps a query's colour and offset (you kept the kit's drop and only changed the ring), skip any match already holding your new value.
 - **Combined values.** Rings and recipes sit together in longer shadows: a selected pin, a focused button (focus ring plus hairline). Read each match's full value, change only the part the recipe owns, and write the whole value back.
 - **Results are long.** A whole-file query can return tens of thousands of characters. Hand the sweep to one subagent if your agent can spawn one, and ask it for the counts, not the node lists.
 
-A node you add later (a rebuilt scene, a new card) takes the settled recipe from the start. Write the new recipes into the Layout page's Shadows section too, so the system documents itself, named in their words (the kit calls its product-window recipe "Window").
+A node you add later (a rebuilt scene, a new card) takes the settled recipe from the start. Write the new recipes into the Layout page's Shadows section too, so the system documents itself, named in their words (the kit calls its product-window recipe "Window" and its doc-sheet ring "Sheet").
 
 ## Never rename: the alias-rename quirk
 
@@ -148,16 +151,16 @@ All 98 tokens with the kit's (Fieldwork's) values, in creation order: primitives
 
 ```json
 [
-  {"type": "color", "name": "--color-white", "value": "#FBFAF5"},
-  {"type": "color", "name": "--color-canvas", "value": "#F1EFE7"},
-  {"type": "color", "name": "--color-line", "value": "#E2DED4"},
-  {"type": "color", "name": "--color-ash", "value": "#9A9285"},
-  {"type": "color", "name": "--color-slate", "value": "#6B6255"},
-  {"type": "color", "name": "--color-ink", "value": "#3E3428"},
+  {"type": "color", "name": "--color-white", "value": "#FBFBF9"},
+  {"type": "color", "name": "--color-canvas", "value": "#EEF0EB"},
+  {"type": "color", "name": "--color-line", "value": "#DCE0D7"},
+  {"type": "color", "name": "--color-ash", "value": "#8C9187"},
+  {"type": "color", "name": "--color-slate", "value": "#5B6157"},
+  {"type": "color", "name": "--color-ink", "value": "#1F261D"},
   {"type": "color", "name": "--color-ink-hover", "value": "#415A2F"},
-  {"type": "color", "name": "--color-surface-muted", "value": "#EEEBE1"},
-  {"type": "color", "name": "--color-surface-sunken", "value": "#F5F3EC"},
-  {"type": "color", "name": "--color-canvas-dot", "value": "#D3CEC1"},
+  {"type": "color", "name": "--color-surface-muted", "value": "#E8EBE4"},
+  {"type": "color", "name": "--color-surface-sunken", "value": "#F4F5F1"},
+  {"type": "color", "name": "--color-canvas-dot", "value": "#C9CEC4"},
   {"type": "color", "name": "--color-link", "value": "#4F6B3A"},
   {"type": "color", "name": "--color-link-tint", "value": "#4F6B3A1F"},
   {"type": "color", "name": "--color-link-line", "value": "#4F6B3A80"},
@@ -165,11 +168,11 @@ All 98 tokens with the kit's (Fieldwork's) values, in creation order: primitives
   {"type": "color", "name": "--color-pin-green", "value": "#4F6B3A"},
   {"type": "color", "name": "--color-needs-owner", "value": "#E0662B"},
   {"type": "color", "name": "--color-needs-owner-tint", "value": "#FBE6D8"},
-  {"type": "color", "name": "--color-needs-owner-text", "value": "#8C3A13"},
+  {"type": "color", "name": "--color-needs-owner-text", "value": "#7D3A0F"},
   {"type": "color", "name": "--color-coral", "value": "#F2B896"},
-  {"type": "color", "name": "--color-oxblood", "value": "#A63A26"},
-  {"type": "color", "name": "--color-oxblood-tint", "value": "#F7E5DF"},
-  {"type": "color", "name": "--color-oxblood-hover", "value": "#8A2F1E"},
+  {"type": "color", "name": "--color-oxblood", "value": "#B03A2E"},
+  {"type": "color", "name": "--color-oxblood-tint", "value": "#F8E4E1"},
+  {"type": "color", "name": "--color-oxblood-hover", "value": "#922E24"},
   {"type": "color", "name": "--color-butter", "value": "#F6E9AE"},
   {"type": "color", "name": "--color-rose", "value": "#F3D4C0"},
   {"type": "color", "name": "--color-sky", "value": "#D2DFE2"},

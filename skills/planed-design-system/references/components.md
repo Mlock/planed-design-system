@@ -9,7 +9,7 @@ Each entry gives:
 - **swap:** the Fieldwork-specific parts to replace with the person's
 - **remove:** whether the page can be deleted when their product doesn't need it
 
-Every page follows `page-pattern.md`. On every page, also swap: the file line (`Fieldwork design system · …` → `<their system> design system · …`), the status line (`In your product · <Fieldwork's places>` → their places, or `New · not built yet`), and the lead.
+Every page follows `page-pattern.md`. On every page, also swap the lead, including its last sentence, the status (`In the product <Fieldwork's places>.` → their places, or `Not built yet.`; `page-pattern.md`, "The header"). The kit's pages have no file line or status dot above the title; don't add one.
 
 ## Fieldwork's sample data, everywhere
 
@@ -307,7 +307,7 @@ Some Fieldwork-only ideas run through many pages: the office and field split (a 
 ### Toast
 - **page / board:** `p-19-0` / `IX0-0`
 - **core:** true
-- **documents:** Variants (saved, removed, marked for revisit, after Undo, a failed sync: one bark bar with Undo). Position, timing, stacking (bottom centre, six seconds, never stacked). On Ruth's phone, 10:52 (the sync-failed toast). Usage (only for changes someone might want back).
+- **documents:** Variants (saved, removed, marked for revisit, after Undo, a failed sync: one ink bar with Undo). Position, timing, stacking (bottom centre, six seconds, never stacked). On Ruth's phone, 10:52 (the sync-failed toast). Usage (only for changes someone might want back).
 - **swap:** every message to an event in their product, in past tense with whose it was. Shape per the brief. Rebuild the scene.
 - **remove:** no (core)
 
@@ -341,7 +341,7 @@ Some Fieldwork-only ideas run through many pages: the office and field split (a 
 
 ## Other pages and boards
 
-- **Readme** (`p-1-0` / `VK4-0`): the kit's Readme, written for Fieldwork as the sample: its title, a lead saying it's a sample the agent restyles, a "Use this kit → Start here" line, the credit line with the licence line under it (keep it as it is), Fieldwork's five rules, the page list and the changelog (`v1.0 · Fieldwork sample generated with the planed-design-system skill`). Rewritten at the end of the run (SKILL.md step 6). Never delete it. Two parts the text sweep misses: Fieldwork's pin mark in the eyebrow (an SVG: swap it for their mark, or remove it), and the cover under the header, `Cover · S-0412 map` (the transect on the woodland-tint map). Rebuild the cover as their product's signature moment, drawn on their tokens in the same 360-tall band, or remove it if their moodboard gives nothing to show there.
+- **Readme** (`p-1-0` / `VK4-0`): the kit's Readme, written for Fieldwork as the sample: its title, a lead saying it's a sample the agent restyles, a "Use this kit → Start here" line, the credit line with the licence line under it (keep it as it is), Fieldwork's five rules, the page list and the changelog (`v1.0 · Fieldwork sample generated with the planed-design-system skill`). Rewritten at the end of the run (SKILL.md step 6). Never delete it. The Readme has no eyebrow: its header is the title and the lead column. Its five rules are a plain list (a title at 18/24 semibold, the sentence under it in ink, no index numbers or row rules), and the page list's column heads carry no underline. One part the text sweep misses: the cover under the header, `Cover · S-0412 map` (the transect on the woodland-tint map). Rebuild the cover as their product's signature moment, drawn on their tokens in the same 360-tall band, or remove it if their moodboard gives nothing to show there.
 - **Patterns** (`p-15-0`): one board, `Drop your screens here, then run Patterns` (`W93-0`). The kit carries no Patterns boards of its own; the optional Patterns run builds them from the person's screens.
 - **Breadcrumbs** (`p-B-0`): an empty page at the end of the page list, after a divider. Fieldwork's own run removed Breadcrumbs (its office app is flat), and the Paper MCP can't delete a page. Don't build on it or count it; tell the person they can delete it in Paper. If their product needs breadcrumbs, document them on Navigation bar.
 - **Review logs.** The kit carries none. If a copy has artboards named `… · review log`, delete them; they aren't part of the system.
