@@ -10,6 +10,8 @@ The kit is a sample system for a made-up product (Fieldwork, a survey and field-
 
 ![The Button page the agent wrote from that moodboard: variants and states, sizes, icon buttons, a scene from the product, and a Do and Don’t](docs/button.png)
 
+**See it as an app.** Fieldwork’s sign-up and onboarding, built from this kit, run as a clickable Prototype in Planed, with hover and pressed states and transitions: [open the Fieldwork prototype](https://www.planed.cc/i/IbojcmTLqhq7GfK7yonM3g-anon). No account needed. The screens are in [their own Paper File](https://app.paper.design/file/01M89DV7JTFS9VQ5Q4SWR1CEWY), one page per route.
+
 ## How it works
 
 1. **Get your own copy.** Open the [Planed design system kit](https://app.paper.design/file/01M893XQADCXH6Y0W6JCJZJK2E) in Paper. It’s view-only, so:
