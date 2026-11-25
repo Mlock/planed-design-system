@@ -67,7 +67,7 @@ Some Fieldwork-only ideas run through many pages: the office and field split (a 
 ### Brand and imagery
 - **page / board:** `p-6-0` / `QBO-0`
 - **core:** true
-- **documents:** Mark and wordmark (the pin mark and lower-case "fieldwork" at sizes, the app tile, clear space, where it appears). The survey is the imagery (no photographs: the map, the transect and the records are the pictures). Paper and lichen (the grounds and the map art's lichen and moss contours). In the office app (full-bleed office scene). Usage.
+- **documents:** Mark and wordmark (the pin mark and lower-case "fieldwork" at sizes, the app tile, clear space, where it appears). The survey is the imagery (no photographs: the map, the transect and the records are the pictures). Paper and lichen (the grounds, and the map art: the woodland-tint image on the lichen ground, then moss contours). In the office app (full-bleed office scene). Usage.
 - **swap:** all of it is Fieldwork's brand. Their logo or name set in their display face ("Mark and wordmark" is the only page that specs the mark: sizes, clear space, where it appears; Icons points here); their imagery rules from the moodboard (photo, illustration, product shots, texture); their ground; a scene in their voice. Keep the Usage format with their own Do and Don't.
 - **remove:** no
 
@@ -341,7 +341,7 @@ Some Fieldwork-only ideas run through many pages: the office and field split (a 
 
 ## Other pages and boards
 
-- **Readme** (`p-1-0` / `VK4-0`): the kit's Readme, written for Fieldwork as the sample: its title, a lead saying it's a sample the agent restyles, a "Use this kit → Start here" line, the credit line with the licence line under it (keep it as it is), Fieldwork's five rules, the page list and the changelog (`v1.0 · Fieldwork sample generated with the planed-design-system skill`). Rewritten at the end of the run (SKILL.md step 6). Never delete it. One part the text sweep misses: Fieldwork's pin mark in the eyebrow (an SVG: swap it for their mark, or remove it).
+- **Readme** (`p-1-0` / `VK4-0`): the kit's Readme, written for Fieldwork as the sample: its title, a lead saying it's a sample the agent restyles, a "Use this kit → Start here" line, the credit line with the licence line under it (keep it as it is), Fieldwork's five rules, the page list and the changelog (`v1.0 · Fieldwork sample generated with the planed-design-system skill`). Rewritten at the end of the run (SKILL.md step 6). Never delete it. Two parts the text sweep misses: Fieldwork's pin mark in the eyebrow (an SVG: swap it for their mark, or remove it), and the cover under the header, `Cover · S-0412 map` (the transect on the woodland-tint map). Rebuild the cover as their product's signature moment, drawn on their tokens in the same 360-tall band, or remove it if their moodboard gives nothing to show there.
 - **Patterns** (`p-15-0`): one board, `Drop your screens here, then run Patterns` (`W93-0`). The kit carries no Patterns boards of its own; the optional Patterns run builds them from the person's screens.
 - **Breadcrumbs** (`p-B-0`): an empty page at the end of the page list, after a divider. Fieldwork's own run removed Breadcrumbs (its office app is flat), and the Paper MCP can't delete a page. Don't build on it or count it; tell the person they can delete it in Paper. If their product needs breadcrumbs, document them on Navigation bar.
 - **Review logs.** The kit carries none. If a copy has artboards named `… · review log`, delete them; they aren't part of the system.
