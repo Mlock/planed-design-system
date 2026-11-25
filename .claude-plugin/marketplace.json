@@ -1,0 +1,17 @@
+{
+  "name": "planed-design-system",
+  "owner": {
+    "name": "Mlock"
+  },
+  "metadata": {
+    "description": "The Planed design system kit: an Agent Skill that turns a moodboard in a Paper file into your own design system."
+  },
+  "plugins": [
+    {
+      "name": "planed-design-system",
+      "source": "./",
+      "description": "Turn a moodboard in a Paper file into your own design system, from the Planed design system kit.",
+      "strict": false
+    }
+  ]
+}
