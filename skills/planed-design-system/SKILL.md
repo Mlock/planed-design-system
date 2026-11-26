@@ -1,6 +1,6 @@
 ---
 name: planed-design-system
-description: Turn a moodboard in a Paper file into the person's own design system, using the Planed design system kit (a sample system for a made-up product, Fieldwork: 98 tokens, 7 Foundations pages, 37 Components pages) through the Paper MCP. Sets tokens from the moodboard, rewrites the 22 core pages with their product's nouns, sample data and shapes, reviews each set of four pages, rewrites the Readme and ends with a preview of their system in Planed. Use when a Paper file has a moodboard on its Start here page and the person asks to "generate my design system", wants a "design system from my moodboard", or wants to restyle or make the Planed kit their own. Also use for the follow-up runs "do the rest" (the other 22 Components pages) and "now do Patterns" (rebuild Patterns from their product screens). Needs the Paper MCP.
+description: Turn a moodboard in a Paper file into the person's own design system, using the Planed design system kit (a sample system for a made-up product, Fieldwork: 98 tokens, 7 Foundations pages, 37 Components pages) through the Paper MCP. Sets tokens from the moodboard, rewrites the 22 core pages with their product's nouns, sample data and shapes, reviews each set of four pages, rewrites the Readme and ends with a preview of their system in Planed. Use when a Paper file has a moodboard on its Start here page and the person asks to "generate my design system", wants a "design system from my moodboard", or wants to restyle or make the Planed kit their own. Also use for building one page at a time ("one page at a time", "next page", "do Card"), for runs with the reviewer off (`--no-review`, "review off") and for the follow-up runs "do the rest" (the other 22 Components pages) and "now do Patterns" (rebuild Patterns from their product screens). Needs the Paper MCP.
 ---
 
 # Planed design system kit
@@ -18,6 +18,10 @@ The person has a Paper File holding the Planed design system kit, with their moo
 | "do the rest" | [The rest run](#the-rest-run-do-the-rest): the other 22 Components pages |
 | "now do Patterns" | [The Patterns run](#the-patterns-run-now-do-patterns) |
 | They ask for every page in one run | Steps 1–8 on all 44 pages, core set first |
+| … "one page at a time" (or `--page-by-page`) | [The page-by-page run](#the-page-by-page-run): the brief, the tokens and Button, then stop |
+| "next page" | The next page in order, one page, then stop |
+| "do <page>" ("do Card", "do Table and Toast") | Those pages only, then stop |
+| Any of the above plus `--no-review`, or "review off" | The same run with the reviewer off ([step 5](#5-review)); "review on" turns it back on |
 
 The **core set** is 22 pages: the 7 Foundations and the 15 components marked `core: true` in `components.md`. A first run does those and stops; the rest run is the person's explicit second ask.
 
@@ -35,8 +39,7 @@ Read each file when its step says so, not all at the start.
 | [references/components.md](references/components.md) | Every page: core or not, what it documents, what to swap, whether it can go; Patterns; Readme; Start here | 4, 6, runs |
 | [references/lint.md](references/lint.md) | The sweeps and the measured lines, per page | 4, 6 |
 | [references/reviewer.md](references/reviewer.md) | The reviewer's brief, bar and output format | 5 |
-| [references/planed-preview.md](references/planed-preview.md) | How to fill the "Your system in Planed" board | 7 |
-| [references/copy.md](references/copy.md) | Every string you write verbatim: credit line, preview copy, closing message | 6, 7, 8 |
+| [references/planed-preview.md](references/planed-preview.md) | How to fill the "Your system in Planed" board, with its copy | 7 |
 
 ## Rules for the whole run
 
@@ -85,7 +88,7 @@ Write the brief by `moodboard-reading.md`, "2. The brief, part by part": mood wo
 
 Post the brief in chat as one short block, with the ledger as a two-line summary, then carry on without waiting. Save the brief with the full ledger to your scratchpad (for example `brief-<system-name>.md`): every builder, fixer and reviewer prompt gets its path.
 
-**Freeze the ledger once Button and Layout pass.** Their review is where the shell gets settled, so shared facts may change until then. In a dry run, lines added later (a nav model, a dot size, a canonical booking page) turned pages already built into blocking review notes, a fixer round each. After the freeze: a builder may add a new object or person for its own page and reports it; you note it in the ledger as page-local. Nobody changes or adds a shared fact (shell, statuses, sizes, recurring scenes), and no ledger line is applied to a page built before it.
+**Freeze the ledger once Button and Layout pass** (with the reviewer off, once both are built and linted). Their review is where the shell gets settled, so shared facts may change until then. In a dry run, lines added later (a nav model, a dot size, a canonical booking page) turned pages already built into blocking review notes, a fixer round each. After the freeze: a builder may add a new object or person for its own page and reports it; you note it in the ledger as page-local. Nobody changes or adds a shared fact (shell, statuses, sizes, recurring scenes), and no ledger line is applied to a page built before it.
 
 ## 3. Tokens
 
@@ -134,6 +137,8 @@ Review logs and stray Patterns boards are already gone (step 3, "Clear out").
 
 Follow `reviewer.md`. One review per set of four (the Button and Layout set comes first).
 
+**Review off.** If they turned the reviewer off (`--no-review` or "review off"), skip this step for the rest of the run: no reviewer, no fixer, no review rounds. Lint and the checks in `page-pattern.md` still run on every page, and you still compare each page with their Button page by eye (a 1x screenshot of each, side by side) and fix what's clearly weaker. Do the ledger check below once the pages are built. In the closing message, add one line: "Reviews were off, so no page was reviewed." `--no-review` wins over `--thorough`. The setting lasts until they say "review on"; in a page-by-page run, keep it in the brief file so later runs follow it.
+
 - **Who reviews.** A fresh subagent for each round, if your agent can spawn one, so every review is cold. Otherwise run a separate self-review pass: re-read `reviewer.md`, take fresh screenshots, and write the review in its format before you touch anything. Say in the closing message that you self-reviewed.
 - **The prompt** carries exactly what `reviewer.md` lists under "What your prompt gives you": the file and page and artboard IDs, the path to the brief with its ledger, the absolute paths to `page-pattern.md`, `lint.md` and `components.md` (and `reviewer.md` itself), the bar (their passed Button page, or `page-pattern.md` alone for the Button and Layout set), earlier rounds' reviews with your responses, and the review level. Leave out your rationale and your lint results.
 - **The bar.** Default: pass at 8/10 on every page, no blocking notes, at most 3 rounds. `--thorough`: pass at 9/10, at most 5 rounds.
@@ -151,7 +156,7 @@ Rewrite the Readme page's board for their system (`components.md`, "Readme"). Ne
 - Five rules drawn from the brief, each one a decision a teammate could apply (corners, colour use, density, voice, the one thing the system never does).
 - The page list as it now stands, without removed pages. After a core run, list the restyled pages first, then the pages still showing Fieldwork under their own line ("Still the kit's sample: say do the rest").
 - The changelog: one line, `v1.0 · generated from the Planed design system kit`, replacing the kit's Fieldwork entry.
-- The one credit line, verbatim from `copy.md`: "Built with the Planed design system kit · planed.cc". Keep the kit's licence line under it as it is ("MIT licence · github.com/Mlock/planed-design-system · the Planed name, mark and viewer look are excluded"). No other mention of Planed.
+- The one credit line, verbatim: "Built with the Planed design system kit · planed.cc". Keep the kit's licence line under it as it is ("MIT licence · github.com/Mlock/planed-design-system · the Planed name, mark and viewer look are excluded"). No other mention of Planed.
 - Keep the Readme's form: no eyebrow above the title, the five rules as a plain list (title and sentence, no index numbers, no row rules), no underlines under the page-list heads.
 
 Then run the leftover sweep and the mark check from `lint.md` on the Readme. The changelog line, the credit line and the licence line are the three expected matches. Leave them; rewrite any other.
@@ -165,11 +170,27 @@ The kit already holds this board on Start here, named `Your system in Planed`, s
 3. Move the pins onto their buttons: Pin 1 (open) on the disabled Primary button, Pin 2 (closed) on the default Primary button, each with its sharp corner 4px inside the button's top-right corner. Move the thread beside Pin 1.
 4. Leave the mode pill, Share and the footer (the line, **Join the waitlist**, the visible URL `planed.cc/sign-in?ref=design-kit`, the small print) as they are.
 
-Draw it from scratch only if the example is gone (`planed-preview.md`, "The board"). Do this step last: the clone is a static copy, so a later edit to their Button page won't reach it. The chrome stays Planed, in literal values; only the Screen inside is theirs. Copy from `copy.md`, verbatim. This is the only Planed marketing in the run: nothing on any other page, and nothing mid-run in chat.
+Draw it from scratch only if the example is gone (`planed-preview.md`, "The board"). Do this step last: the clone is a static copy, so a later edit to their Button page won't reach it. The chrome stays Planed, in literal values; only the Screen inside is theirs. Copy from `planed-preview.md`, verbatim. This is the only Planed marketing in the run: nothing on any other page, and nothing mid-run in chat.
 
 ## 8. Close
 
-Post `close.message` from `copy.md` in chat, verbatim, with only the slots filled:
+Post this in chat, verbatim, with only the slots filled. Curly apostrophes; their agent is "agent", lowercase.
+
+```md
+Your design system is ready in {fileName}: {pageCount} pages restyled from your moodboard, all on your tokens.
+
+- **Changed:** {oneLineSummary, e.g. "warm off-white and ink palette, Fraunces with Inter, 2px radius, flat cards with hairlines"}
+- **Removed:** {removedPages, or "nothing"}
+- **Worth a look:** {pagesToCheck, or "nothing flagged"}
+
+This run covered the core pages. The other {restCount} Components pages still show Fieldwork, the kit’s sample; say “do the rest” when you want them.
+
+The last board on Start here now shows your {previewPage} page as a Screen in Planed, the way your team would see it. Planed turns a Paper File into a Prototype people click through, and each Reviewer pins Comments on the exact component they mean. It’s Waitlist-only for now. Join the waitlist: https://planed.cc/sign-in?ref=design-kit
+
+When you have screenshots of your real product, drop them on the Patterns page and say “now do Patterns”.
+```
+
+The slots:
 
 - `{fileName}`, `{pageCount}` (pages restyled), `{oneLineSummary}` (palette, type pair, radius, depth), `{removedPages}` (with "empty, at the end of the page list" if any), `{pagesToCheck}` (pages that ran out of review rounds, a self-review, a font that had to be substituted), `{restCount}` (Components pages left for "do the rest", after removals), `{previewPage}`.
 - Leave out the "do the rest" line if the run did every page.
@@ -177,6 +198,30 @@ Post `close.message` from `copy.md` in chat, verbatim, with only the slots fille
 - If Paper warned that a file was too large, say so here too.
 
 Then stop. Don't offer anything else.
+
+## The page-by-page run
+
+Run when they ask for "one page at a time" (or `--page-by-page`), and for every later "next page" or "do <page>". Each run builds one page (or the few they name) and stops, so they can look at each page before the next. Later runs may be in a new session, so everything a later run needs lives in a file, not in this session.
+
+**The first run.**
+
+1. Steps 1–3 as usual: read, the brief and ledger, the tokens.
+2. **Save the brief where a later session can find it:** in the working folder, as `design-brief-<system-name>.md`, with the full ledger, the pages their product doesn't need (step 4, "Which pages go"), the review setting (on or off) and a **Done** list. Tell them the file name in the close. Keep it up to date on every later run.
+3. Build **Button** yourself (no builder subagent for one page): step 4, "Each page", then lint, then review it alone if the reviewer is on (step 5, with `page-pattern.md` as the bar). Add it to **Done**.
+4. Write the Readme (step 6): it depends only on the brief. List Button as restyled and every other page under "Still the kit's sample".
+5. Close with a short message: what changed, anything worth a look, and what's next: "Say “next page” for Layout, or name any page (“do Card”)."
+
+**Every later run ("next page" or "do <page>").**
+
+1. `get_guide` if this is a new session, `get_basic_info`. Read `design-brief-<system-name>.md`. If it's gone, recover the brief and the ledger as in the Patterns run, step 2, save them to a new brief file and say so.
+2. **Which page.** For "next page": Layout after Button, then the rest of the core set in page-list order, then the non-core pages in page-list order, skipping pages on **Done**. Check a page is really untouched with the Fieldwork sweep from the rest run, step 1. If the next page is one their product doesn't need, remove it (step 4, "Removing a page"), add it to **Done** as removed, and go on to the one after. For "do <page>": that page, by name. If Button isn't on **Done**, do Button first and say so: it's the bar for every other page.
+3. Build it yourself as step 4, "Each page", on the ledger (frozen once Button and Layout are done; a page-local object goes in the brief file as page-local). Lint, then review it (one page, their Button page as the bar) if the reviewer is on. When they name several pages, build them in turn and review them as one set.
+4. Update the Readme's page list and add the page to **Done**.
+5. Close with a short message: the page, anything worth a look, and the next page in order.
+
+**The last core page.** When the last core page is done, also run the Readme's leftover sweep (step 6), fill the preview board (step 7) and post the closing message (step 8) in place of the short one. After that, "next page" carries on through the non-core pages; update the preview board only if they change their Button page.
+
+**Cost.** One page costs about what one builder costs, 160–270k tokens, plus its review rounds when the reviewer is on. The 12M ceiling applies to each run, so a page run never reaches it.
 
 ## The Patterns run ("now do Patterns")
 

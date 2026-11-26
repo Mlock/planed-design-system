@@ -39,6 +39,10 @@ The Patterns page starts with one board, for screenshots of your real product. A
 
 A first run on the 22 core pages processes about 6–10M tokens on your own agent plan, makes roughly 1,500–3,700 Paper calls and takes about 30–90 minutes, measured across three dry runs, each stopped early by a lower ceiling; the agent now allows up to about 12M before it stops adding review rounds. Say “do the rest” afterwards for the other 22 Components pages, a second run of about the same size. Add `--thorough` to the prompt for a stricter review, which takes more rounds and more tokens.
 
+**One page at a time.** Add “one page at a time” to the prompt and the agent sets up your brief and tokens, builds the Button page, and stops so you can look. Then say “next page”, or name one (“do Card”). It keeps your brief in a file in your working folder (`design-brief-<your system>.md`), so later pages can run in a new session.
+
+**Reviewer off.** Add `--no-review` (or say “review off”) to skip the review rounds: the agent still runs its checks on every page and compares each with your Button page, but no reviewer looks at it. Runs are faster and use fewer tokens; in the dry runs, review and fix rounds were up to about half of a first run. Say “review on” to bring it back.
+
 In plan terms: a run uses a lot of tokens, so on a plan with a usage cap it may stop partway. When your usage resets, say “do the rest” and the agent picks up the pages it hadn’t done.
 
 A run may end with a few pages (three to six in the dry runs) listed under "Worth a look": fixes the agent couldn’t re-review before its token ceiling, a font it had to substitute, or a choice it had to infer. The agent tells you which.
@@ -65,7 +69,7 @@ Then open your Paper File in Paper and paste the prompt from step 3 above. If th
 ## What’s in this repo
 
 - `skills/planed-design-system/SKILL.md`: the workflow your agent follows.
-- `skills/planed-design-system/references/`: the page pattern, every page’s notes, the tokens, moodboard reading and the ledger, Paper quirks, lint, the builder and reviewer briefs, the preview board and the copy.
+- `skills/planed-design-system/references/`: the page pattern, every page’s notes, the tokens, moodboard reading and the ledger, Paper quirks, lint, the builder and reviewer briefs and the preview board with its copy.
 - `.claude-plugin/marketplace.json`: lets `/plugin` install the skill.
 - `docs/`: the two images in this README.
 

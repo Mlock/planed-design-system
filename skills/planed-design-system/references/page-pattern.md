@@ -95,7 +95,7 @@ The last section on every page. The content is a flex column of **pairs**, gap 3
 
 - Layer names follow the kit: `Page header`, `Title row`, `Lead`, `Section · <Title>`, `Section intro`, `Matrix`, `Head`, `Row · <State>`, `Pairs`, `Pair · <Topic>`, `Do`, `Don't`. Keep them; later runs and reviewers find sections by name.
 - The page's H1 is the component's generic name (Button, Select). A page the person's product calls something else may say so in the lead ("Called Switch in code").
-- Every visible word is in the person's voice and nouns from the brief. Fieldwork's nouns (survey, transect, quadrat, visit, record, observer, lead, note) and Planed's (Prototype, Screen, Reviewer, Owner, Link, Version) only stay where they are also the person's words.
+- Every visible word is in the person's voice and nouns from the brief. Fieldwork's nouns (survey, transect, quadrat, visit, record, observer, lead, note) only stay where they are also the person's words.
 
 ## Checks before a page is done
 

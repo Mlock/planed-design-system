@@ -22,7 +22,26 @@ How to fill the last board of the run (SKILL.md step 7): the person's Button pag
 | Ink lift | `#00000026 0 1px 2px, #00000014 0 8px 24px` |
 | Screen shadow | `#00000014 0 0 0 1px, #0000000A 0 2px 4px, #00000014 0 16px 40px` |
 
-The copy is in `copy.md` (`preview.thread`, `preview.line`, `preview.button`). Paste it as written.
+## The copy
+
+Paste it as written. Planed's nouns are capitalised (Prototype, Screen, Comment, Reviewer, Waitlist); the button label keeps a lower-case "waitlist".
+
+**`preview.thread`.** Pin 1, open thread, on the disabled Primary button (the Disabled column of the Primary row). Nearly every Button page shows a disabled state, and it is faint by design, so the question holds on almost any system:
+
+| Who | When | Comment |
+|---|---|---|
+| Jo Kim (JK), Reviewer | 2h | Is disabled too faint? I can barely tell it apart on my laptop. |
+| Ade Bello (AB), Reviewer | 1h | Same on mine. It reads as no button at all, not one I can’t use yet. |
+
+Reply field placeholder: Reply…
+
+Pin 2, closed, on the default Primary button (the first state in the Primary row): **Ade Bello** · Is there a loading state for these?
+
+If the board shows a page other than Button, rewrite the two Comments for that page's components in the same voice.
+
+**`preview.line`.** Send your team one link. They click through every Screen of your system and pin Comments on the buttons they’d change.
+
+**`preview.button`.** **Join the waitlist**, linked to `https://planed.cc/sign-in?ref=design-kit`. URL line under it: planed.cc/sign-in?ref=design-kit. Small print under the URL line: Planed is Waitlist-only for now. Sign in with Google to join.
 
 ## Start from the kit's example
 
@@ -44,7 +63,7 @@ Do this last in the run, after every fix to their Button page: the clone is a st
 4. **The Screen.** A viewport frame at left 80, top 84, 1440 × 916, radius 4, overflow clip, background `#FFFFFF`, the Screen shadow. Put the person's Button artboard inside it at 1x:
    - first try `write_html` into the viewport with `<x-paper-clone node-id="<their Button artboard id>" style="position: relative; left: 0; top: 0; translate: 0;" />` (clones keep their absolute position; see `paper-quirks.md`);
    - if the clone doesn't render, `duplicate_nodes` the Button artboard with `parentId` set to the viewport frame, then `update_styles` it to `position: relative; left: 0; top: 0`.
-   The viewport cuts the page off at the bottom, the way a viewer scrolls. The header and the Variants and states section must be in view; check with a screenshot. If their strongest page isn't Button, use that page instead and rewrite the two Comments for its components (the deck allows this).
+   The viewport cuts the page off at the bottom, the way a viewer scrolls. The header and the Variants and states section must be in view; check with a screenshot. If their strongest page isn't Button, use that page instead and rewrite the two Comments for its components.
 5. **The chrome**, three floating groups 12 off the window's top edge (top 12):
    - **Where pill**, left 12.
    - **Mode pill**, centred on the window (left = (1600 − its width) / 2; read the width with `get_node_info` after writing it).
@@ -196,5 +215,5 @@ Screenshot the whole board, then the chrome and the thread at 2x:
 - The Screen is theirs: their colours, fonts and shapes, exactly as their Button page.
 - Pin 1's sharp corner is 4px inside the disabled Primary button's top-right corner, and the thread doesn't cover that button. Pin 2's sharp corner is the same way on the default Primary button.
 - The popover clears the window edges by at least 12.
-- The copy matches `copy.md` exactly, with `{System name}` filled.
+- The copy matches "The copy" above exactly, with `{System name}` filled.
 - `finish_working_on_nodes`.

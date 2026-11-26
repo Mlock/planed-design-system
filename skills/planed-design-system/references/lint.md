@@ -17,7 +17,7 @@ The kit's sample system is Fieldwork, a made-up survey app for ecologists. Its w
 - Fieldwork's objects and IDs: `S-04` (S-0405, S-0409, S-0412, S-0415), `Q-0` and `Q-1` (Q-01 to Q-12), `Transect`, `transect`, `quadrat`, `survey`, `species`, `Wet flush`, `Hedge margin`, `Oak edge`, `spring visit`, and the Latin names (`Primula`, `Hyacinthoides`, `Anemone`, `Quercus`, `Hedera`, `Ficaria`)
 - Fieldwork's figures and actions: `8 of 12`, `10:47`, `10:52`, `Sync failed`, `Log quadrat`, `Mark for revisit`, `Add note`, `Export CSV`, `cover`, `312 MB`, `161`, `23 April`
 - every other person, object and figure in the table "Fieldwork's sample data, everywhere" in `components.md`
-- Planed's words, in case any remain: `Planed`, `Prototype`, `Screen`, `Reviewer`, `Owner`, `Paper calls`, `Checkout`, `Priya`, `Mira`, `fernhill`, `planed.cc`
+- Planed's words, in case any remain: `Planed`, `planed.cc`
 
 Read each match before you rewrite it. Short strings also match ordinary words and token names: `Ruth` in "truth", `Hale` in "whale", `cover` in "discover", `survey` in a real survey product, `--color-link` in a colour caption, "screenshot". Those are fine. The leftover is Fieldwork's own noun, person or figure where the person's product doesn't have one.
 
@@ -33,20 +33,19 @@ Fieldwork's pin mark (a map pin with a down arrow, beside the lower-case "fieldw
 
 `find_nodes` with `filters: [{styleName: "fontFamily", styleValue: "*<family>*"}]` for each family that isn't the person's: at least `*IBM Plex*` (the kit's), `*Inter*`, `*Geist*`, `*Newsreader*`, `*Helvetica*`, `*system*`. A node whose family reads `var(--font-…)` is fine. A literal family is a fault: text without its own family falls back to Inter (`paper-quirks.md`), and a literal Plex left from the kit won't follow the font tokens. Set it to `var(--font-sans)`, `var(--font-display)` or `var(--font-mono)`. The example tiles on Start here (Inter, Newsreader) and the preview board (Geist) are the kit's own and stay.
 
-**SVGs hide from the sweeps.** `find_nodes` doesn't see text or fills inside an SVG. The kit's diagrams (Motion's curves, Icons, the map art's contours and transect lines, the pin mark) can carry SVG text and literal fills like `#1F261D` (or `#3E3428` in an older copy), `#4F6B3A` or `#000000`. On a page with SVG diagrams you keep, read each SVG with `get_jsx` and set its text and fills to their tokens.
+**SVGs hide from the sweeps.** `find_nodes` doesn't see text or fills inside an SVG. The kit's diagrams (Motion's curves, Icons, the map art's contours and transect lines, the pin mark) can carry SVG text and literal fills like `#1F261D`, `#4F6B3A` or `#000000`. On a page with SVG diagrams you keep, read each SVG with `get_jsx` and set its text and fills to their tokens.
 
 ### 4. Raw hex
 
 `find_nodes` with a wildcard hex (`#*`) returns nothing, and a filter with no value matches everything. Instead, read `get_jsx` of the page section by section and look for colour literals outside `var(...)`. Known suspects in the kit:
 
 - Fieldwork's primitives written as literals: `#1F261D` ink, `#5B6157` slate, `#8C9187` ash, `#DCE0D7` line, `#C9CEC4`, `#E8EBE4`, `#F4F5F1`, `#FBFBF9` paper, `#EEF0EB` canvas, `#B03A2E` oxblood, `#7D3A0F`, `#4F6B3A` moss, `#E0662B` signal, `#C9D3B0` lichen
-- the same primitives in an older copy of the kit (before 25 November 2026): `#3E3428` bark, `#6B6255`, `#9A9285`, `#E2DED4`, `#D3CEC1`, `#EEEBE1`, `#F5F3EC`, `#FBFAF5` paper, `#F1EFE7`, `#A63A26`, `#8A2F1E`, `#F7E5DF`, `#8C3A13`
-- fades and gradients over crops (a literal canvas fade, `#EEF0EB` or `#F1EFE7` in an older copy, on some scenes; gradients can't use tokens, so repaint them from the person's palette, see `paper-quirks.md`)
-- `#FBFAF5` in focus rings (older copies; the kit now uses `var(--color-surface)` there), and `#FFFFFF` or `#000000` anywhere
+- fades and gradients over crops (a literal canvas fade, `#EEF0EB`, on some scenes; gradients can't use tokens, so repaint them from the person's palette, see `paper-quirks.md`)
+- `#FFFFFF` or `#000000` anywhere
 
 If a match equals one of the person's own token values (check `get_tokens`), swap it for that `var(…)`; it isn't a kit leftover.
 
-Swap each for the matching token. **One exception: gradients.** `var()` doesn't resolve inside a gradient (`paper-quirks.md`), so a gradient takes literal hex from the person's palette. That covers a dot grid kept for a canvas product and a Don't that shows a gradient as the mistake. Use only their palette's values, and note it in your report. Shadow colours (ink at an alpha: `#1F261D14`, `#1F261D0A`, `#1F261D1A`, `#1F261D0F`, `#1F261D17`; bark `#3E3428…` at the same alphas in an older copy) are the recipes and stay literal; the shadow sweep in step 3 re-tints or deepens them (`tokens.md`, "Shadows"), so any left on a page you rewrite is a leftover from the sweep. An In context scene that shows the person's product draws it on their tokens: no literal hex there either.
+Swap each for the matching token. **One exception: gradients.** `var()` doesn't resolve inside a gradient (`paper-quirks.md`), so a gradient takes literal hex from the person's palette. That covers a dot grid kept for a canvas product and a Don't that shows a gradient as the mistake. Use only their palette's values, and note it in your report. Shadow colours (ink at an alpha: `#1F261D14`, `#1F261D0A`, `#1F261D1A`, `#1F261D0F`, `#1F261D17`) are the recipes and stay literal; the shadow sweep in step 3 re-tints or deepens them (`tokens.md`, "Shadows"), so any left on a page you rewrite is a leftover from the sweep. An In context scene that shows the person's product draws it on their tokens: no literal hex there either.
 
 ### 5. Off-scale type
 
